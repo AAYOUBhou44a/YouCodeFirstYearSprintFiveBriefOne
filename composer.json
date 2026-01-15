@@ -1,0 +1,6 @@
+{
+    "require": {
+        "twig/twig": "^3.22",
+        "eftec/bladeone": "^4.19"
+    }
+}
