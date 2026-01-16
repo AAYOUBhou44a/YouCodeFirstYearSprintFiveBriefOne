@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Connexion - EduBrief</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-900 h-screen flex items-center justify-center p-4">
+
     <div class="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-md">
         <div class="text-center mb-10">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-2xl mb-4 shadow-lg shadow-blue-500/50">
@@ -29,5 +22,3 @@
             </button>
         </form>
     </div>
-</body>
-</html>
