@@ -14,6 +14,7 @@ $page = trim($page, "/");
 $router = new Router();
 $path = $router->getPath($page);
 
+
 include __DIR__ . "/../$path.php";
 
 include __DIR__ . "/../views/layout/footer.php";
