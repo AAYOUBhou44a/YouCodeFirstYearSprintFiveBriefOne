@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# 1. Si on demande la racine, on va vers public/
+RewriteRule ^$ public/index.php [L]
+
+# 2. Si le fichier ou dossier n'existe pas physiquement
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# 3. On envoie tout vers le dossier public/index.php
+RewriteRule ^(.*)$ public/index.php [QSA,L]
