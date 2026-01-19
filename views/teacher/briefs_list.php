@@ -51,7 +51,7 @@
             </div>
             <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-50">
                 <span class="text-xs font-semibold text-blue-600"><i class="fas fa-bullseye mr-1"></i> 3 Compétences</span>
-                <a href="/debriefing/teacher/debriefing_form" class="bg-slate-800 text-white text-xs px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors shadow-sm">Débriefer</a>
+                <a href="/debriefing/debriefing_form" class="bg-slate-800 text-white text-xs px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors shadow-sm">Débriefer</a>
             </div>
         </div>
 

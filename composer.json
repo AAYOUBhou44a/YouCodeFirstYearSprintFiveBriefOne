@@ -4,5 +4,8 @@
         "App\\": "App/",
         "Router\\": "Router/"
     }
-}
+},
+  "require": {
+    "jenssegers/blade": "^2.0"
+  }
 }
