@@ -12,51 +12,54 @@ class Brief{
 
     public function __construct($id, $title, $description, $text, $type, $sprintId, $classId, $startDate, $endDate){
         $this->id = $id;
-        $this->title = $title;
-        $this->description = $description;
-        $this->text = $text;
-        $this->type = $type;
+        $this->setTitle($title);
+        $this->setDescription($description);
+        $this->setText($text);
+        $this->setType($type);
         $this->sprintId = $sprintId;
         $this->classId = $classId;
+        if($startDate > $endDate){
+            throw new Exception("La date de début ne peut pas être après la date de fin");
+        }
         $this->startDate = $startDate;
         $this->endDate = $endDate;
     }
 
-    public function setTitle($title){
+    public function setTitle(string $title){
         if(empty($title)){
             throw new Exception("Le titre ne peux pas etre vide");
         }
             $this->title = $title;
     }
 
-    public function setDescription($description){
+    public function setDescription(string $description){
         if(empty($description)){
             throw new Exception("La description de peut pas etre vide");
         }
         $this->description = $description;
     }
 
-    public function setText($text){
+    public function setText(string $text){
         if(empty($text)){
             throw new Exception("Le text ne peut pas etre vide");
         }
         $this->text = $text;
     }
 
-    public function setType($type){
+    public function setType(string $type){
         if($type != 'collectif' && $type != 'individuel'){
             throw new Exception("Type de brief invalid");
         }
         $this->type = $type;
     }
 
-    public function setStartDate($startDate){
+    public function setStartDate(DateTime $startDate){
         if($startDate > $this->endDate){
             throw new Exception("La date de début ne peut pas etre après la date de la fin ");
         }
         $this->startDate = $startDate;
     }
-    public function setEndDate($endDate){
+    public function setEndDate(DateTime $endDate){
         if($endDate < $this->startDate){
             throw new Exception("La date de fin ne peut pas etre avant la date de début");
         }

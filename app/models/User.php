@@ -1,19 +1,21 @@
 <?php
-class User{
+abstract class User{
     private int $id;
     private string $firstName;
     private string $lastName;
     private string $email;
     private int $age;
     private string $phone;
+    private string $role;
 
-    public function __construct($id, $firstName, $lastName, $email, $age, $phone){
+    public function __construct($id, $firstName, $lastName, $email, $age, $phone, $role){
         $this->id = $id;
-        $this->firstName = $firstName; 
-        $this->lastName = $lastName;
-        $this->email = $email;
-        $this->age = $age;
-        $this->phone = $phone;
+        $this->setFirstName($firstName); 
+        $this->setLastName($lastName);
+        $this->setEmail($email);
+        $this->setAge($age);
+        $this->setPhone($phone);
+        $this->role = $role;
     }
     public function setFirstName($firstName){
         if(empty($firstName)){
@@ -33,14 +35,14 @@ class User{
         }
         $this->email = $email;
     }
-    public function setAge(){
+    public function setAge($age){
         if($age <18 || $age > 120){
             throw new Exception("Age entré invalid");
         }
         $this->age = $age;
     }
     public function setPhone($phone){
-        if(count($phone) < 10){
+        if(strlen($phone) < 10){
             throw new Exception("Nombre de téléphone invalide");
         }
         $this->phone = $phone;
@@ -64,6 +66,9 @@ class User{
     }
     public function getPhone(): string{
         return $this->phone;
+    }
+    public function getRole(): string{
+        return $this->role;
     }
 }
 

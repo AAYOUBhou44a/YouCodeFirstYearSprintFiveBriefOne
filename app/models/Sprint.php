@@ -8,24 +8,27 @@ class Sprint{
 
     public function __construct(int $id, string $name, DateTime $startDate, DateTime $endDate){
         $this->id = $id;
-        $this->name = $name;
+        $this->setName($name);
+        if($startDate > $endDate){
+            throw new Exception("la date de début ne peut pas etre après la date de fin");
+        }
         $this->startDate = $startDate;
         $this->endDate = $endDate;
     }
 
-    public function setName($name){
+    public function setName(string $name){
         if(empty($name)){
             throw new Exception("Le titre du sprint ne peut pas etre vide");
         }
         $this->name = $name;
     }
-    public function setStartDate($startDate){
+    public function setStartDate(DateTime $startDate){
         if($startDate > $this->endDate){
             throw new Exception("La date de début ne peut pas etre après la date de fin");
         }
         $this->startDate = $startDate;
     }
-    public function setEndDate($endDate){
+    public function setEndDate(DateTime $endDate){
         if($endDate < $this->startDate){
             throw new Exception("La date de fin ne peut pas etre avant la date de début");
         }
