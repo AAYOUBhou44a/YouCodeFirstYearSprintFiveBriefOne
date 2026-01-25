@@ -1,0 +1,33 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Mes Briefs{% endblock %}
+
+{% block content %}
+    <h2>Gestion des Briefs</h2>
+    <a href="/debriefing/briefs/create" class="button">Créer un Brief</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Sprint (ID)</th>
+                <th>Dates</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for brief in briefs %}
+                <tr>
+                    <td>{{ brief.id }}</td>
+                    <td>{{ brief.title }}</td>
+                    <td>{{ brief.sprintId }}</td>
+                    <td>{{ brief.startDate|date('d/m/Y') }} - {{ brief.endDate|date('d/m/Y') }}</td>
+                    <td>{{ brief.type }}</td>
+                    <td>
+                        <a href="/debriefing/evaluations/brief?id={{ brief.id }}" class="button primary">Évaluer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

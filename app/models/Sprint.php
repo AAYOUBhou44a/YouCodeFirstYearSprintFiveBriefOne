@@ -1,12 +1,16 @@
-<?php
+namespace App\Models;
+
+use DateTime;
+use Exception;
 
 class Sprint{
     private int $id;
     private string $name;
     private DateTime $startDate;
     private DateTime $endDate;
+    private int $classId;
 
-    public function __construct(int $id, string $name, DateTime $startDate, DateTime $endDate){
+    public function __construct(int $id, string $name, DateTime $startDate, DateTime $endDate, int $classId){
         $this->id = $id;
         $this->setName($name);
         if($startDate > $endDate){
@@ -14,6 +18,7 @@ class Sprint{
         }
         $this->startDate = $startDate;
         $this->endDate = $endDate;
+        $this->classId = $classId;
     }
 
     public function setName(string $name){
@@ -47,6 +52,9 @@ class Sprint{
     }
     public function getEndDate(): DateTime{
         return $this->endDate;
+    }
+    public function getClassId(): int{
+        return $this->classId;
     }
 }
 

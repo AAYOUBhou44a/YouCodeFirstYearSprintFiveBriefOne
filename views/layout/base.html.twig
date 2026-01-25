@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Debriefing System{% endblock %}</title>
+    <link rel="stylesheet" href="/assets/css/style.css"> <!-- Assuming assets folder, user can create later -->
+    <!-- Simple CSS for functional UI -->
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { background: #333; color: #fff; padding: 1rem; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin-right: 15px; }
+        nav a { color: #fff; text-decoration: none; }
+        .container { padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 15px; background: #007bff; color: #fff; border: none; cursor: pointer; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Systeme de Debriefing</h1>
+        <nav>
+            <ul>
+                {% if user %}
+                    <li><a href="/debriefing/dashboard">Tableau de bord</a></li>
+                    <li><a href="/debriefing/logout">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="/debriefing/login">Connexion</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Debriefing System</p>
+    </footer>
+</body>
+</html>

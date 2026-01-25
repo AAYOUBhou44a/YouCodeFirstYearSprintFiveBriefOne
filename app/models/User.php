@@ -1,21 +1,27 @@
-<?php
+namespace App\Models;
+
+use Exception;
+
 abstract class User{
     private int $id;
     private string $firstName;
     private string $lastName;
     private string $email;
-    private int $age;
-    private string $phone;
+    private string $password;
     private string $role;
+    // Removed age/phone
 
-    public function __construct($id, $firstName, $lastName, $email, $age, $phone, $role){
+    public function __construct($id, $firstName, $lastName, $email, $password, $role){
         $this->id = $id;
         $this->setFirstName($firstName); 
         $this->setLastName($lastName);
         $this->setEmail($email);
-        $this->setAge($age);
-        $this->setPhone($phone);
+        $this->password = $password;
         $this->role = $role;
+    }
+    
+    public function getPassword(): string {
+        return $this->password;
     }
     public function setFirstName($firstName){
         if(empty($firstName)){
@@ -62,10 +68,12 @@ abstract class User{
         return $this->email;
     }
     public function getAge(): int{
-        return $this->age;
+        // Removed as per schema
+        return 0;
     }
     public function getPhone(): string{
-        return $this->phone;
+        // Removed as per schema
+        return "";
     }
     public function getRole(): string{
         return $this->role;

@@ -1,0 +1,28 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Gestion des Sprints{% endblock %}
+
+{% block content %}
+    <h2>Liste des Sprints</h2>
+    <a href="/debriefing/sprints/create" class="button">Créer un sprint</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Dates</th>
+                <th>Classe (ID)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sprint in sprints %}
+                <tr>
+                    <td>{{ sprint.id }}</td>
+                    <td>{{ sprint.name }}</td>
+                    <td>{{ sprint.startDate|date('d/m/Y') }} - {{ sprint.endDate|date('d/m/Y') }}</td>
+                    <td>{{ sprint.classId }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

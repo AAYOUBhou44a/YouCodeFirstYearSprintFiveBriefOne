@@ -1,0 +1,18 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Créer une Compétence{% endblock %}
+
+{% block content %}
+    <h2>Créer une nouvelle compétence</h2>
+    <form action="/debriefing/skills/store" method="POST">
+        <div class="form-group">
+            <label for="code">Code (ex: C1, C2):</label>
+            <input type="text" name="code" id="code" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Titre:</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <button type="submit">Créer</button>
+    </form>
+{% endblock %}

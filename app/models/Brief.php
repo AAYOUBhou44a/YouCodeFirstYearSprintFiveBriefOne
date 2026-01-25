@@ -1,4 +1,9 @@
 <?php
+namespace App\Models;
+
+use DateTime;
+use Exception;
+
 class Brief{
     private int $id;
     private string $title;

@@ -1,0 +1,26 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Gestion des Compétences{% endblock %}
+
+{% block content %}
+    <h2>Liste des Compétences</h2>
+    <a href="/debriefing/skills/create" class="button">Créer une compétence</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Code</th>
+                <th>Titre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for skill in skills %}
+                <tr>
+                    <td>{{ skill.id }}</td>
+                    <td>{{ skill.code }}</td>
+                    <td>{{ skill.title }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

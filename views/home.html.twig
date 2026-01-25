@@ -1,0 +1,29 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block content %}
+    <h2>Bienvenue, {{ user.first_name }} {{ user.last_name }}</h2>
+    <p>Rôle: {{ user.role }}</p>
+
+    <!-- Content based on role -->
+    {% if user.role == 'admin' %}
+        <h3>Administration</h3>
+        <ul>
+            <li><a href="/debriefing/classes">Gérer les classes</a></li>
+            <li><a href="/debriefing/sprints">Gérer les sprints</a></li>
+        </ul>
+    {% elseif user.role == 'teacher' %}
+        <h3>Espace Formateur</h3>
+        <ul>
+            <li><a href="/debriefing/briefs">Mes Briefs</a></li>
+            <li><a href="/debriefing/evaluations">Évaluations</a></li>
+        </ul>
+    {% elseif user.role == 'student' %}
+        <h3>Espace Apprenant</h3>
+        <ul>
+            <li><a href="/debriefing/my-briefs">Mes Briefs</a></li>
+            <li><a href="/debriefing/progression">Ma Progression</a></li>
+        </ul>
+    {% endif %}
+{% endblock %}

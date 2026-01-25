@@ -1,0 +1,16 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Évaluer Brief: {{ brief.title }}{% endblock %}
+
+{% block content %}
+    <h2>Évaluer Brief: {{ brief.title }}</h2>
+    <p>Sélectionnez un apprenant pour l'évaluer.</p>
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.firstName }} {{ student.lastName }}
+                <a href="/debriefing/evaluations/student?brief_id={{ brief.id }}&student_id={{ student.id }}" class="button primary">Évaluer</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

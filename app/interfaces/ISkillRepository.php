@@ -1,9 +1,12 @@
 <?php
-interface ISkillRepository{
+namespace App\Interfaces;
+
+use App\Models\Skill;
+
+interface ISkillRepository {
     public function getAll(): array;
-    public function getById($id): ?Skill;
+    public function getById(int $id): ?Skill;
     public function add(Skill $skill): bool;
     public function update(Skill $skill): bool;
-    public function delete($id): bool;
+    public function delete(int $id): bool;
 }
-?>

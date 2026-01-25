@@ -16,7 +16,7 @@ class Classe {
         }
         $this->name = $name;
     }
-    public function setTeacherId($teacherid){
+    public function setTeacherId($teacherId){
         if($teacherId < 0){
             throw new Exception("Id de prof invalid");
         }

@@ -1,0 +1,29 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Mes Briefs{% endblock %}
+
+{% block content %}
+    <h2>Mes Briefs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Sprint</th>
+                <th>Dates</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in briefs %}
+                <tr>
+                    <td>{{ item.brief.title }}</td>
+                    <td>{{ item.sprint.name }}</td>
+                    <td>{{ item.brief.startDate|date('d/m/Y') }} - {{ item.brief.endDate|date('d/m/Y') }}</td>
+                    <td>{{ item.brief.type }}</td>
+                </tr>
+            {% else %}
+                <tr><td colspan="4">Aucun brief assigné.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

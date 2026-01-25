@@ -1,4 +1,7 @@
-<?php
+namespace App\Models;
+
+use Exception;
+
 class Skill{
     private int $id;
     private string $code;

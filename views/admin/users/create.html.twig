@@ -1,0 +1,55 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Créer un Utilisateur{% endblock %}
+
+{% block content %}
+    <h2>Créer un nouvel utilisateur</h2>
+    <form action="/debriefing/users/store" method="POST">
+        <div class="form-group">
+            <label for="first_name">Prénom:</label>
+            <input type="text" name="first_name" id="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Nom:</label>
+            <input type="text" name="last_name" id="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="role">Rôle:</label>
+            <select name="role" id="role" onchange="toggleStudentFields()" required>
+                <option value="admin">Administrateur</option>
+                <option value="teacher">Formateur</option>
+                <option value="student">Apprenant</option>
+            </select>
+        </div>
+        <div class="form-group" id="class-div" style="display:none;">
+            <label for="class_id">Classe (pour apprenant):</label>
+            <select name="class_id" id="class_id">
+                <option value="">Sélectionner une classe</option>
+                {% for class in classes %}
+                    <option value="{{ class.id }}">{{ class.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Créer</button>
+    </form>
+
+    <script>
+        function toggleStudentFields() {
+            var role = document.getElementById('role').value;
+            var classDiv = document.getElementById('class-div');
+            if (role === 'student') {
+                classDiv.style.display = 'block';
+            } else {
+                classDiv.style.display = 'none';
+            }
+        }
+    </script>
+{% endblock %}

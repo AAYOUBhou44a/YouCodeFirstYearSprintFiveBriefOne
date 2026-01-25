@@ -1,0 +1,26 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}Gestion des Classes{% endblock %}
+
+{% block content %}
+    <h2>Liste des Classes</h2>
+    <a href="/debriefing/classes/create" class="button">Créer une classe</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Enseignant (ID)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class in classes %}
+                <tr>
+                    <td>{{ class.id }}</td>
+                    <td>{{ class.name }}</td>
+                    <td>{{ class.teacherId }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

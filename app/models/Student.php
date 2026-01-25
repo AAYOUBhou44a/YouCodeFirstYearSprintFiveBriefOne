@@ -1,14 +1,14 @@
-<?php
-class Student extends User{
-    private int $classId;
+namespace App\Models;
 
-    public function __construct($id, $firstName, $lastName, $email, $age, $phone, $classId){
-        parent::__construct($id, $firstName, $lastName, $email, $age, $phone, "student");
+class Student extends User {
+    private ?int $classId; // Nullable if not assigned yet
 
+    public function __construct($id, $firstName, $lastName, $email, $password, ?int $classId = null) {
+        parent::__construct($id, $firstName, $lastName, $email, $password, "student");
         $this->classId = $classId;
     }
 
-    public function getClassId(){
+    public function getClassId(): ?int {
         return $this->classId;
     }
 }

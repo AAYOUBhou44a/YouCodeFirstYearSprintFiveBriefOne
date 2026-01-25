@@ -8,7 +8,7 @@
             <p class="text-slate-400 mt-2">Accédez à votre espace pédagogique</p>
         </div>
 
-        <form action="index.php?action=login_process" method="POST" class="space-y-6">
+        <form action="/debriefing/submit_login" method="POST" class="space-y-6">
             <div>
                 <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Email</label>
                 <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
